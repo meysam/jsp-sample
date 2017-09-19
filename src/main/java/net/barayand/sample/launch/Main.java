@@ -1,4 +1,4 @@
-package launch;
+package net.barayand.sample.launch;
 
 
 import java.io.File;

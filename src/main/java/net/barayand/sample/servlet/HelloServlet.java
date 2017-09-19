@@ -1,4 +1,4 @@
-package servlet;
+package net.barayand.sample.servlet;
 
 import java.io.IOException;
 
