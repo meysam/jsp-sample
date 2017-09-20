@@ -2,8 +2,7 @@ package net.barayand.sample.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,5 +22,6 @@ public class HelloServlet extends HttpServlet {
         out.flush();
         out.close();
     }
+
 
 }

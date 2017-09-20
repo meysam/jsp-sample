@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
-<fmt:setLocale value="${language}" />
-<fmt:setBundle basename="net.barayand.text" />
-<html lang="fa">
+<c:set var="language"
+       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="net.barayand.sample.i18n.appMessage"/>
+<html lang="${language}">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
@@ -17,30 +19,31 @@
 
 <body>
 <!-- side-nav -->
+
 <nav class="side-nav">
     <div class="logo">
         <img src="images/logo.png" alt="">
     </div>
     <ul class="nav-item">
-        <li class="list-header">صفحات اصلی</li>
-        <a class="list-item no-style active" href="">درباره محصولات جدید</a>
-        <a class="list-item no-style" href="">خدمات جدید</a>
-        <a class="list-item no-style" href="">تماس با مشتری</a>
+        <li class="list-header"><fmt:message key="nav.item.home"/></li>
+        <a class="list-item no-style active" href=""><fmt:message key="nav.item.about"/></a>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.newservice"/></a>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.contact"/></a>
     </ul>
 
     <ul class="nav-item">
-        <li class="list-header">فروشگاه</li>
-        <a class="list-item no-style" href="">مبانی خرید</a>
-        <a class="list-item no-style" href="">انتشار محصول جدید</a>
-        <a class="list-item no-style" href="">لیست خدمات</a>
-        <a class="list-item no-style" href="">مبانی خرید</a>
-        <a class="list-item no-style" href="">انتشار محصول جدید</a>
-        <a class="list-item no-style" href="">لیست خدمات</a>
+        <li class="list-header"><fmt:message key="nav.item.shop"/></li>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.basebuy"/></a>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.pubnew"/></a>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.listservice"/></a>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.basebuy"/></a>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.pubnew"/></a>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.listservice"/></a>
     </ul>
 
     <ul class="nav-item">
-        <li class="list-header">صفحات اصلی</li>
-        <a class="list-item no-style" href="">درباره محصولات جدید</a>
+        <li class="list-header"><fmt:message key="nav.item.home"/></li>
+        <a class="list-item no-style" href=""><fmt:message key="nav.item.about"/></a>
     </ul>
 
 </nav>
@@ -49,16 +52,24 @@
 <nav class="top-nav">
 
     <ul>
-        <a class="no-style list-item" href="">خانه</a>
-        <a class="no-style list-item active" href="">مدیریت</a>
-        <a class="no-style list-item" href="">ترتیب سرویس ها</a>
-        <a class="no-style list-item" href="">آمار ها</a>
+        <a class="no-style list-item" href=""><fmt:message key="home"/></a>
+        <a class="no-style list-item active" href=""><fmt:message key="management"/></a>
+        <a class="no-style list-item" href=""><fmt:message key="order.services"/></a>
+        <a class="no-style list-item" href=""><fmt:message key="statistics"/></a>
     </ul>
 
     <div class="user">
         <a class="icon-bell no-style" href=""></a>
         <a class="icon-mail no-style" href=""></a>
         <a class="icon-help no-style" href=""></a>
+        <div class="no-style">
+            <form>
+                <select id="language" name="language" onchange="submit()">
+                    <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+                    <option value="fa" ${language == 'fa' ? 'selected' : ''}>Persian</option>
+                </select>
+            </form>
+        </div>
         <div class="user-dropdown">
             <img src="images/default-user-image.png" alt="">
             <span class="email">dabichi@gmai.com</span>
@@ -75,6 +86,7 @@
                 <span><a href="">خانه</a></span>
                 <span>مدیریت شماره ها</span>
             </div>
+
             <h1 class="h1">مدیریت شماره ها</h1>
 
             <div class="list-controls-wrapper">
