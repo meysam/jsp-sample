@@ -26,3 +26,9 @@ hs_err_pid*
 .idea/workspace.xml
 target/
 web/index.jsp
+target
+.idea
+.idea/
+*.iml
+.DS_Store
+.gradle
